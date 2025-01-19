@@ -17,7 +17,12 @@ local OPPOSITES = vim.tbl_add_reverse_lookup({
   ['<<'] = '>>',
 })
 
-local BINARY = 'binary_expression'
+local BINARY = {
+  'binary_expression',
+  'binary_operator',
+  'boolean_operator',
+  'comparison_operator',
+}
 local OPERATOR_INDEX = 2
 
 ---Return TSNode with type 'binary_expression' or nil
@@ -28,7 +33,7 @@ local function get_binary_node(node)
     return
   end
 
-  if node:type() ~= BINARY then
+  if not vim.tbl_contains(BINARY, node:type()) then
     node = node:parent()
     return get_binary_node(node)
   end
