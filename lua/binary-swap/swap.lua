@@ -11,11 +11,14 @@ end
 
 local M = {}
 
-local OPPOSITES = vim.tbl_add_reverse_lookup({
+local OPPOSITES = {
   ['>='] = '<=',
+  ['<='] = '>=',
   ['>'] = '<',
+  ['<'] = '>',
   ['<<'] = '>>',
-})
+  ['>>'] = '<<',
+}
 
 local BINARY = {
   'binary_expression',
