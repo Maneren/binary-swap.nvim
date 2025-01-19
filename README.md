@@ -10,8 +10,8 @@ for swapping operands and operators in binary expressions:
 <https://user-images.githubusercontent.com/46977173/201508787-1b9604a1-1d0a-4feb-86d2-8b5417f4f679.mov>
 
 This is a maintained fork of
-[binary-swap](https://github.com/Wansmer/binary-swap.nvim), following its
-archivation. So far almost all code is the same, with only small changes.
+[binary-swap](https://github.com/Wansmer/binary-swap.nvim) following its
+archivation. Almost all code logic is the same with only small refactoring.
 
 ## Installation
 
