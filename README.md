@@ -7,11 +7,12 @@ for swapping operands and operators in binary expressions:
 - Comparison operations;
 - Mathematical operations;
 
-<https://user-images.githubusercontent.com/46977173/201508787-1b9604a1-1d0a-4feb-86d2-8b5417f4f679.mov>
+> [!NOTE]  
+> This is a maintained fork of
+> [binary-swap](https://github.com/Wansmer/binary-swap.nvim) following its
+> archivation. So far almost all code logic is the same with only minor refactoring.
 
-This is a maintained fork of
-[binary-swap](https://github.com/Wansmer/binary-swap.nvim) following its
-archivation. Almost all code logic is the same with only small refactoring.
+<https://user-images.githubusercontent.com/46977173/201508787-1b9604a1-1d0a-4feb-86d2-8b5417f4f679.mov>
 
 ## Installation
 
@@ -43,7 +44,8 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 With [packer.nvim](https://github.com/wbthomason/packer.nvim):
 
-> [!warning] Not officially supported anymore
+> [!WARNING]
+> Not officially supported anymore
 
 ```lua
 use({
