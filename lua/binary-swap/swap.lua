@@ -1,14 +1,3 @@
-local query = require('vim.treesitter.query')
-local ts = require('vim.treesitter')
--- `ts.get_node_text` for NVIM v0.9.0-dev-1275+gcbbf8bd66-dirty and newer
--- see: https://github.com/neovim/neovim/pull/22761
-local get_node_text = ts.get_node_text or query.get_node_text
-local ts_ok, ts_utils = pcall(require, 'nvim-treesitter.ts_utils')
-
-if not ts_ok then
-  return
-end
-
 local M = {}
 
 local OPPOSITES = {
@@ -26,7 +15,6 @@ local BINARY = {
   'boolean_operator',
   'comparison_operator',
 }
-local OPERATOR_INDEX = 2
 
 ---Return TSNode with type 'binary_expression' or nil
 ---@param node TSNode
@@ -66,7 +54,7 @@ local function swap_operands(operands, swap_operator)
   local replacement = {}
 
   for idx = #operands, 1, -1 do
-    local text = get_node_text(operands[idx], 0)
+    local text = vim.treesitter.get_node_text(operands[idx], 0)
 
     local reversed_idx = #operands - idx + 1
 
@@ -89,9 +77,14 @@ end
 ---@param swap_operator? boolean Swap operator to opposite or not
 function M.format_and_replace(swap_operator)
   local parser = vim.treesitter.get_parser()
+
+  if not parser then
+    return
+  end
+
   parser:parse()
 
-  local node = ts_utils.get_node_at_cursor(0)
+  local node = vim.treesitter.get_node()
 
   if not node then
     return
